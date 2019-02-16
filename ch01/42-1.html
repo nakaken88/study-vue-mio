@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="show=!show">切り替え</button>
+        <transition>
+            <p v-if="show">時間差 Hello Vue.js!</p>
+        </transition>
+        <p v-if="show">すぐ Hello Vue.js!</p>
+        </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        show: true
+    }
+})
+</script>
+<style>
+.v-enter-active, .v-leave-active {
+    transition: opacity 1s;
+}
+.v-enter, .v-leave-to {
+    opacity: 0;
+}
+</style>
+</body>
+</html>
