@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app" style="height:1000px;">
+        <input type="text" v-bind:value="message">
+        <input type="text" value="Hello Vue.js!">
+        <div v-bind:text-content.prop="message">ここは無視される</div>
+        <div v-bind:scroll-top.prop="scroll">ここの内容(scroll-top) は正しいのかよくわからない。。。</div>
+        <pre>{{ $data }}</pre>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue.js!',
+        scroll: 0
+    },
+    mounted: function() {
+        this.scroll = 100;
+    }
+});
+</script>
+</body>
+</html>
