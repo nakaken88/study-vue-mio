@@ -17,6 +17,10 @@
 
         <h2>v-textのサンプル</h2>
         <span v-text="count"></span><br />
+
+        <h2>v-htmlのサンプル</h2>
+        v-text：<span v-text="myHtml"></span><br />
+        v-html：<span v-html="myHtml"></span><br />
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
@@ -24,7 +28,8 @@ var app = new Vue({
     el: '#app',
     data: {
         message: 'aaa',
-        count: 0
+        count: 0,
+        myHtml: 'aaa <strong>bbb</strong> ccc'
     },
     methods: {
         handleClick: function() {
