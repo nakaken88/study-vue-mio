@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <div v-if="ok">v-if true</div>
+        <div v-show="ok">v-show true</div>
+        <br>
+        <div v-if="!ok">v-if false</div>
+        <pre>
+入力：&lt;div v-if="!ok"&gt;v-if false&lt;/div&gt;
+出力：&lt;!----&gt;
+        </pre>
+        <div v-show="!ok">v-show false</div>
+        <pre>
+入力：&lt;div v-show="!ok"&gt;v-show false&lt;/div&gt;
+出力：&lt;div style="display: none;"&gt;v-show false&lt;/div&gt;
+        </pre>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        ok: true
+    }
+});
+</script>
+</body>
+</html>
