@@ -43,6 +43,17 @@
                 </div>
             </div>
         </div>
+
+        <h2>self（自分自身だけハンドラが呼び出される）</h2>
+        <div v-on:click.right.self="handleRightClick('div1')">
+            div1
+            <div v-on:click.right.self="handleRightClick('div2')">
+                div2
+                <div v-on:click.right.self="handleRightClick('div3')">
+                    div3
+                </div>
+            </div>
+        </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
