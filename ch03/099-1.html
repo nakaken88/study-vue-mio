@@ -24,6 +24,25 @@
                 div2
             </div>
         </div>
+
+        <h2>処理のキャンセル</h2>
+        <div v-on:click.right="handleRightClick('div1')">
+            div1
+            <div v-on:click.right.prevent="handleRightClick('div2')">
+                div2
+            </div>
+        </div>
+
+        <h2>キャプチャ</h2>
+        <div v-on:click.right.capture="handleRightClick('div1')">
+            div1 (div3を右クリックすると、div1のイベントが先に起こる)
+            <div v-on:click.right="handleRightClick('div2')">
+                div2
+                <div v-on:click.right="handleRightClick('div3')">
+                    div3
+                </div>
+            </div>
+        </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
