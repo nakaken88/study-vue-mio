@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <h2>v-preのサンプル</h2>
+        <span v-pre>{{ message }}</span>
+        <pre v-pre>出力：&lt;span&gt;{{ message }}&lt;/span&gt;</pre>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'aaa'
+    }
+});
+</script>
+</body>
+</html>
