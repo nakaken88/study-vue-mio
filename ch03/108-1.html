@@ -13,6 +13,18 @@
         <h2>複数行テキスト</h2>
         <textarea v-model="message2">{{ message2 }}</textarea>
         <pre>{{ message2 }}</pre>
+
+        <h2>チェックボックス</h2>
+        <label>
+            <input type="checkbox" v-model="val">{{ val }}
+        </label>
+        <br/><br/>
+        <label>
+            <input type="checkbox" v-model="vals" value="A">A</label>
+            <input type="checkbox" v-model="vals" value="B">B</label>
+            <input type="checkbox" v-model="vals" value="C">C</label>
+        </label>
+        <p>vals: {{ vals }}</p>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
@@ -20,7 +32,9 @@ var app = new Vue({
     el: '#app',
     data: {
         message: 'Hello!',
-        message2: 'Hello 2\nVue js!\n\n\n'
+        message2: 'Hello 2\nVue js!\n\n\n',
+        val: true,
+        vals: []
     }
 });
 </script>
