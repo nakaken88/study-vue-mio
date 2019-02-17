@@ -9,9 +9,11 @@
         名前：<input v-model="name">
         <button v-on:click="doAdd">追加！</button>
         <ul>
-            <li v-for="(item,index) in list" v-bind:key="item.id">
+            <li v-for="(item,index) in list" v-bind:key="item.id" v-if="item.hp>0">
                 ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
                 <button v-on:click="doRemove(index)">要素を削除</button>
+                <button v-on:click="doAttack(index)">攻撃！</button>
+                <span v-if="item.hp<=50">瀕死！</span>
             </li>
         </ul>
     </div>
@@ -41,6 +43,9 @@ var app = new Vue({
         },
         doRemove: function(index) {
             this.list.splice(index, 1);
+        },
+        doAttack: function(index) {
+            this.list[index].hp -= 50;
         }
     }
 });
