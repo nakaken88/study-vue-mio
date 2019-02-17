@@ -33,6 +33,15 @@
             <input type="radio" v-model="radio" value="C">C</label>
         </label>
         <p>radio: {{ radio }}</p>
+
+        <h2>セレクトボックス</h2>
+        <select v-model="select">
+            <option disabled="disabled" value=0>選んでください</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+        <p>select: {{ select }}</p>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
@@ -43,7 +52,8 @@ var app = new Vue({
         message2: 'Hello 2\nVue js!\n\n\n',
         val: true,
         vals: [],
-        radio: 'C'
+        radio: 'C',
+        select: 0
     }
 });
 </script>
