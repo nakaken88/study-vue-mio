@@ -16,6 +16,14 @@
         <div v-on:click.right.prevent="handleRightClick">
             右クリックでコンテキストメニューを表示させない
         </div>
+
+        <h2>バブリングの停止</h2>
+        <div v-on:click.right="handleRightClick('div1')">
+            div1
+            <div v-on:click.right.stop="handleRightClick('div2')">
+                div2
+            </div>
+        </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
@@ -29,8 +37,8 @@ var app = new Vue({
             // do something...
             this.message = event.target.value;
         },
-        handleRightClick: function(event) {
-            console.log( event );
+        handleRightClick: function(comment) {
+            console.log(comment);
         }
     }
 });
