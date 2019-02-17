@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <h2>条件を満たしたものに、クラスを追加</h2>
+        <ul>
+            <li v-for="item in list"
+                    v-bind:key="item.id"
+                    v-bind:class="{ over300: item.hp > 300 }">
+                ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+                <span v-if="item.hp > 300">over 300!</span>
+            </li>
+        </ul>
+
+        <h2>条件を満たしたものだけを描画</h2>
+        <ul>
+            <li v-for="item in list"
+                    v-bind:key="item.id"
+                    v-if="item.hp < 300">
+                ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+            </li>
+        </ul>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        list: [
+            { id: 1, name:'aaa', hp: 100 },
+            { id: 2, name:'bbb', hp: 200 },
+            { id: 3, name:'ccc', hp: 500 },
+        ]
+    }
+});
+</script>
+</body>
+</html>
