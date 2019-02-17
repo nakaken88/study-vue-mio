@@ -8,6 +8,14 @@
     <div id="app">
         <input v-bind:value="message" v-on:input="handleInput">
         <span>{{ message }}</span>
+
+        <h2>右クリックイベント取得</h2>
+        <div v-on:click.right="handleRightClick">
+            右クリックでコンテキストメニューを表示させる（通常の処理）
+        </div>
+        <div v-on:click.right.prevent="handleRightClick">
+            右クリックでコンテキストメニューを表示させない
+        </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
@@ -20,6 +28,9 @@ var app = new Vue({
         handleInput: function(event) {
             // do something...
             this.message = event.target.value;
+        },
+        handleRightClick: function(event) {
+            console.log( event );
         }
     }
 });
