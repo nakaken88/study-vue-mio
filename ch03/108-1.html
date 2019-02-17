@@ -25,6 +25,14 @@
             <input type="checkbox" v-model="vals" value="C">C</label>
         </label>
         <p>vals: {{ vals }}</p>
+
+        <h2>ラジオボタン</h2>
+        <label>
+            <input type="radio" v-model="radio" value="A">A</label>
+            <input type="radio" v-model="radio" value="B">B</label>
+            <input type="radio" v-model="radio" value="C">C</label>
+        </label>
+        <p>radio: {{ radio }}</p>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
@@ -34,7 +42,8 @@ var app = new Vue({
         message: 'Hello!',
         message2: 'Hello 2\nVue js!\n\n\n',
         val: true,
-        vals: []
+        vals: [],
+        radio: 'C'
     }
 });
 </script>
