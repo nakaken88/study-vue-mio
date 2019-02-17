@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <h2>templateタグによるv-ifグループ化: true</h2>
+            <template v-if="ok">
+                <header>タイトル</header>
+                <div>コンテンツ</div>
+            </template>
+            <h2>templateタグによるv-ifグループ化: false</h2>
+            <template v-if="!ok">
+                <header>タイトル</header>
+                <div>コンテンツ</div>
+            </template>
+        </div>
+        <div>
+            <h2>v-else-if, v-else</h2>
+            <div v-if="typeA === 'A'">typeはA</div>
+            <div v-else-if="typeA === 'B'">typeはB</div>
+            <div v-else>typeはC</div>
+
+            <div v-if="typeB === 'A'">typeはA</div>
+            <div v-else-if="typeB === 'B'">typeはB</div>
+            <div v-else>typeはC</div>
+
+            <div v-if="typeC === 'A'">typeはA</div>
+            <div v-else-if="typeC === 'B'">typeはB</div>
+            <div v-else>typeはC</div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        ok: true,
+        typeA: 'A',
+        typeB: 'B',
+        typeC: 'C',
+    }
+});
+</script>
+</body>
+</html>
