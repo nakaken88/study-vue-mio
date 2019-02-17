@@ -6,15 +6,21 @@
 </head>
 <body>
     <div id="app">
+        <h2>input</h2>
         <input type="input" v-model="message">
         <span>{{ message }}</span>
+
+        <h2>複数行テキスト</h2>
+        <textarea v-model="message2">{{ message2 }}</textarea>
+        <pre>{{ message2 }}</pre>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Hello!'
+        message: 'Hello!',
+        message2: 'Hello 2\nVue js!\n\n\n'
     }
 });
 </script>
