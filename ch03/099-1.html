@@ -54,6 +54,12 @@
                 </div>
             </div>
         </div>
+
+        <h2>キー修飾子</h2>
+        すべてのキーが対象：<input v-on:keydown="handleKeyInput"><br />
+        エンターキーが対象：<input v-on:keydown.enter="handleKeyInput"><br />
+        十字キーが対象：<input v-on:keydown.up.right.down.left="handleKeyInput"><br />
+        シフトキー+右クリックが対象：<button v-on:click.right.shift="handleRightClick">クリック</button>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
@@ -68,6 +74,9 @@ var app = new Vue({
             this.message = event.target.value;
         },
         handleRightClick: function(comment) {
+            console.log(comment);
+        },
+        handleKeyInput: function(comment) {
             console.log(comment);
         }
     }
