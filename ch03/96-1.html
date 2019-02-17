@@ -12,6 +12,7 @@
         <h2>インラインイベントハンドラ</h2>
         クリック回数：{{ count }}
         <button v-on:click="count++">クリック</button>
+        <button v-on:click="handleClick($event)">クリック</button>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
@@ -21,8 +22,8 @@ var app = new Vue({
         count: 0
     },
     methods: {
-        handleClick: function() {
-            alert('Clicked!');
+        handleClick: function(e) {
+            alert(e + ' Clicked!');
         }
     }
 });
