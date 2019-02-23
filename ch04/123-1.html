@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <h2>算出プロパティはキャッシュされる</h2>
+        <ul>
+            <li v-for="i in 3">{{ computedData }}</li>
+        </ul>
+        <h2>メソッドはキャッシュされない</h2>
+        <ul>
+            <li v-for="i in 3">{{ methodData() }}</li>
+        </ul>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        aaa: 1
+    },
+    computed: {
+        computedData: function() { return Math.random(); }
+    },
+    methods: {
+        methodData: function() { return Math.random(); }
+    }
+});
+</script>
+</body>
+</html>
