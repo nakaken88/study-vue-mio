@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <header v-bind:class="{ compact: scrollY > 200 }">
+            200px より下にスクロールしたら .compact を追加。<br>
+            背景がグレーになったら、.compact が追加されたということ。
+        </header>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        scrollY: 0,
+        timer: null
+    },
+    created: function() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeDestroy: function() {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
+    methods: {
+        handleScroll: function() {
+            if (this.timer === null) {
+                this.timer = setTimeout(function() {
+                    this.scrollY = window.scrollY;
+                    clearTimeout(this.timer);
+                    this.timer = null;
+                }.bind(this), 200)
+            }
+        }
+    }
+});
+</script>
+<style>
+header {
+    height: 2000px;
+    background-color: white;
+}
+header.compact {
+    background-color: gray;
+}
+</style>
+</body>
+</html>
