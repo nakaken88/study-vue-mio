@@ -3,18 +3,31 @@
 <head>
     <meta charset="utf-8">
     <title>Vue.js App</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+Vue.filter('localeNumGlobal', function(val) {
+    return val.toLocaleString();
+});
+</script>
 </head>
 <body>
     <div id="app">
         {{ price }}<br>
         {{ price | localeNum }}<br>
+        <ul>
+            <li v-for="item in priceList">{{ item | localeNumGlobal }}</li>
+        </ul>
     </div>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
 var app = new Vue({
     el: '#app',
     data: {
-        price: 19800
+        price: 19800,
+        priceList: [
+            20000,
+            35000,
+            5000
+        ]
     },
     filters: {
         localeNum: function(val) {
