@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="count++">カウント</button>
+        <transition>
+            <div v-bind:key="count">{{ count }}</div>
+        </transition>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        count: 0
+    }
+});
+</script>
+<style>
+.v-enter-active, .v-leave-active {
+    transition: opacity 500ms;
+}
+.v-enter, .v-leave-to {
+    opacity: 0;
+}
+.v-leave-active {
+    position: absolute;
+}
+</style>
+</body>
+</html>
