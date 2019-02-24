@@ -9,6 +9,14 @@
         <comp-child val="child-1"></comp-child>
         <comp-child val="child-2"></comp-child>
         <comp-child v-bind:val="message"></comp-child>
+
+        <ul>
+            <comp-list v-for="item in list"
+                v-bind:key="item.id"
+                v-bind:name="item.name"
+                v-bind:hp="item.hp"
+                ></comp-list>
+        </ul>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
@@ -16,10 +24,21 @@ Vue.component('comp-child', {
     template: '<p>{{ val }}</p>', // 親から受け取った val を使う
     props: ['val'] // 親から val を受け取る
 });
+
+Vue.component('comp-list', {
+    template: '<li>{{ name }} HP. {{ hp }}',
+    props: ['name', 'hp']
+});
+
 var app = new Vue({
     el: '#app',
     data: {
-        message: '親から渡されたメッセージ'
+        message: '親から渡されたメッセージ',
+        list: [
+            { id: 1, name:'aaa', hp: 100 },
+            { id: 2, name:'bbb', hp: 200 },
+            { id: 3, name:'ccc', hp: 500 },
+        ]
     }
 });
 </script>
