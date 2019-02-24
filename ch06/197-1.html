@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="show=!show">切り替え</button>
+        <p>
+            速い切り替え：
+            <transition appear>
+                <span v-show="show">トランジションさせたい要素</span>
+            </transition>
+        </p>
+        <p>
+            遅い切り替え：
+            <transition name="demo" appear>
+                <span v-show="show">トランジションさせたい要素</span>
+            </transition>
+        </p>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        show: true
+    }
+});
+</script>
+<style>
+.v-enter-active, .v-leave-active{
+    transition: opacity 300ms;
+}
+.demo-enter-active, .demo-leave-active{
+    transition: opacity 1000ms;
+}
+.v-enter, .v-leave-to, .demo-enter, .demo-leave-to{
+    opacity: 0;
+}
+</style>
+</body>
+</html>
