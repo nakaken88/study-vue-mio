@@ -11,10 +11,14 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
 Vue.component('my-calendar', {
-    template: '<div class="my-calendar">{{ value }}</div>',
-    props: { value: String },
+    model: {
+        prop: 'current',
+        event: 'change'
+    },
+    template: '<div class="my-calendar">{{ current }}</div>',
+    props: { current: String },
     created: function() {
-        this.$emit('input', '2018-01-01')
+        this.$emit('change', '2018-01-01')
     }
 });
 
