@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <comp-child val="child-1"></comp-child>
+        <comp-child val="child-2"></comp-child>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+Vue.component('comp-child', {
+    template: '<p>{{ val }}</p>', // 親から受け取った val を使う
+    props: ['val'] // 親から val を受け取る
+});
+var app = new Vue({
+    el: '#app'
+});
+</script>
+</body>
+</html>
