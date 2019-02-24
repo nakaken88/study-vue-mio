@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="show=!show">切り替え</button>
+        <transition v-on:enter="enter" v-on:after-enter="afterEnter">
+            <div v-show="show">トランジションさせたい要素</div>
+        </transition>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        show: false
+    },
+    methods: {
+        enter: function(el, done) {
+            console.log('enter');
+            setTimeout(done,1000)
+        },
+        afterEnter: function() {
+            console.log('after-enter');
+        }
+    }
+});
+</script>
+</body>
+</html>
