@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <comp-child>
+            スロットの内容
+        </comp-child>
+        <br>
+        <comp-message>
+            {{ message }} (ここは親の message が表示される)
+        </comp-message>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+Vue.component('comp-child', {
+    template: '<div><slot></slot><br>ここにスロットを埋め込む ⇒ <slot></slot><br><slot></slot></div>'
+});
+
+Vue.component('comp-message', {
+    template: '<div><slot></slot></div>',
+    data: function() {
+        return {
+            message: 'child component'
+        }
+    }
+});
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'parent component'
+    }
+});
+</script>
+</body>
+</html>
