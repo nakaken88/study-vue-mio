@@ -8,6 +8,7 @@
     <div id="app">
         <comp-child val="child-1"></comp-child>
         <comp-child val="child-2"></comp-child>
+        <comp-child v-bind:val="message"></comp-child>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
 <script>
@@ -16,7 +17,10 @@ Vue.component('comp-child', {
     props: ['val'] // 親から val を受け取る
 });
 var app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        message: '親から渡されたメッセージ'
+    }
 });
 </script>
 </body>
