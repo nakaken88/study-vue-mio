@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="show=!show">切り替え</button>
+        <h2>普通バージョン</h2>
+        <div style="height:50px;">
+            <transition>
+                <div v-if="show" key="a">true</div>
+                <div v-else key="b">false</div>
+            </transition>
+        </div>
+        <h2>in-out の例</h2>
+        <div style="height:50px;">
+            <transition mode="in-out" name="demo">
+                <div v-if="show" key="a2">true</div>
+                <div v-else key="b2">false</div>
+            </transition>
+        </div>
+        <h2>out-in の例</h2>
+        <div style="height:50px;">
+            <transition mode="out-in" name="demo">
+                <div v-if="show" key="a3">true</div>
+                <div v-else key="b3">false</div>
+            </transition>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        show: true
+    }
+});
+</script>
+<style>
+.v-enter-active, .v-leave-active, .demo-enter-active, .demo-leave-active {
+    transition: opacity 1s;
+}
+.v-enter, .v-leave-to, .demo-enter, .demo-leave-to {
+    opacity: 0;
+}
+.v-leave-to {
+    position: absolute; /* これを入れると、カクカクならない */
+}
+</style>
+</body>
+</html>
