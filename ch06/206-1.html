@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="order=!order">切り替え</button>
+        <transition-group tag="ul" class="list">
+            <li v-for="item in sortedList" v-bind:key="item.id">
+                {{ item.name }} {{ item.price }} 円
+            </li>
+        </transition-group>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.6/dist/vue.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        order: false,
+        list: [
+            { id: 1, name: 'aaa', price: 100},
+            { id: 2, name: 'bbb', price: 500},
+            { id: 3, name: 'ccc', price: 300},
+            { id: 4, name: 'ddd', price: 200},
+            { id: 5, name: 'eee', price: 400},
+        ]
+    }, 
+    computed: {
+        sortedList: function() {
+            const copy = this.list.slice(0).sort(function(a, b) { return a.price - b.price; });
+            return this.order? copy.reverse(): copy;
+        }
+    }
+});
+</script>
+<style>
+.v-move {
+    transition: transform 1s;
+}
+</style>
+</body>
+</html>
